@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陪跑计划 · 1对1带你建立自己的交易系统 | Wing Kwan</title>
+<meta name="description" content="马来西亚合格认证交易员 Wing Kwan · 陪跑计划:1对1陪跑 + 每天LIVE实盘带盘 + 专属学习App,陪跑到你独立交易为止。">
+<meta property="og:title" content="陪跑计划 · 1对1带你建立自己的交易系统">
+<meta property="og:description" content="不卖信号,不叫你跟单。每天 LIVE 实盘手把手教,陪跑到你独立交易为止。">
+<!-- Meta Pixel: 需要时把 pixel 代码贴在这里 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#170E11;
+  --bg2:#1E1317;
+  --card:rgba(255,255,255,.035);
+  --line:rgba(201,162,75,.14);
+  --line-hi:rgba(201,162,75,.32);
+  --grn:#D4AF61;            /* 语义沿用:强调金 */
+  --grn-dim:#9C7B34;
+  --gold:#C9A24B;
+  --gold-hi:#EBD6A4;
+  --rose:#B76E79;
+  --grad:linear-gradient(112deg,#EBD6A4 0%,#D4AF61 42%,#B76E79 100%);
+  --grad-soft:linear-gradient(112deg,rgba(235,214,164,.9),rgba(201,162,75,.9));
+  --txt:#F3EAEC;
+  --dim:#A08A8F;
+  --on-grad:#1C0E10;
+  --live:#FF5A6A;
+  --wa:#25D366;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);color:var(--txt);
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif;
+  line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+.disp{font-family:'Playfair Display','Noto Serif SC','Songti SC','PingFang SC',serif;font-weight:800;letter-spacing:0;}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;}
+section{padding:78px 0;position:relative;}
+
+/* scroll progress */
+#progress{position:fixed;top:0;left:0;height:2.5px;width:100%;z-index:200;
+  background:var(--grad);transform-origin:0 50%;transform:scaleX(0);pointer-events:none;}
+
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent;}
+nav.scrolled{background:rgba(10,11,12,.72);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-bottom-color:var(--line);}
+.nav-in{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:12px;}
+.logo{font-size:15px;letter-spacing:.16em;text-decoration:none;margin-right:auto;}
+.logo b{color:var(--txt);font-weight:800;}
+.logo span{color:var(--grn);}
+.nav-ig{display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:11px;
+  border:1px solid var(--line-hi);color:var(--txt);transition:transform .2s var(--ease),border-color .2s;cursor:pointer;}
+.nav-ig:hover{transform:translateY(-1px);border-color:var(--grn);}
+.nav-ig svg{width:17px;height:17px;}
+.nav-wa{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:800;color:var(--on-grad);text-decoration:none;
+  background:var(--grad);padding:8px 16px;border-radius:12px;transition:transform .2s var(--ease),box-shadow .2s;cursor:pointer;}
+.nav-wa:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(201,162,75,.35);}
+.nav-wa:active{transform:scale(.96);}
+.nav-wa svg{width:15px;height:15px;}
+
+/* ambient */
+.blob{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;will-change:transform;}
+.blob.b1{width:460px;height:460px;top:-160px;left:-140px;background:rgba(201,162,75,.12);animation:drift1 24s ease-in-out infinite alternate;}
+.blob.b2{width:360px;height:360px;bottom:4%;right:-160px;background:rgba(183,110,121,.12);animation:drift2 30s ease-in-out infinite alternate;}
+@keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,50px) scale(1.14)}}
+@keyframes drift2{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,-40px) scale(1.1)}}
+
+/* ============ HERO — 左对齐大标题 + 右侧带角框照片 ============ */
+.hero{position:relative;overflow:hidden;padding:132px 0 0;
+  background:radial-gradient(ellipse 90% 55% at 15% 0%,rgba(201,162,75,.10),transparent 60%),var(--bg);}
+.hero-grid{position:relative;z-index:2;display:grid;gap:26px;}
+.badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-hi);border-radius:100px;
+  padding:7px 16px;font-size:12.5px;color:var(--txt);background:rgba(201,162,75,.06);letter-spacing:.07em;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--grad);
+  box-shadow:0 0 8px rgba(201,162,75,.9);animation:pulse 2.4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(50px,13.5vw,84px);line-height:1.02;margin:22px 0 6px;}
+.h1sub{font-size:clamp(19px,5vw,28px);line-height:1.35;margin-bottom:18px;color:var(--txt);}
+p.lead{color:var(--dim);font-size:15.5px;max-width:30em;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0;}
+.chip{display:inline-flex;align-items:center;gap:7px;font-size:13px;padding:8px 14px;border-radius:10px;
+  background:var(--card);border:1px solid var(--line);color:var(--txt);}
+.chip b{color:var(--grn);font-weight:800;}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 8px rgba(255,77,77,.8);animation:pulse 1.6s ease-in-out infinite;}
+/* 照片带角框 */
+.hero-visual{position:relative;width:min(360px,80%);margin:6px auto 0;}
+.hero-frame{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line-hi);
+  background:linear-gradient(160deg,rgba(201,162,75,.10),rgba(201,162,75,.04));aspect-ratio:3/4;}
+.hero-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+.hero-frame .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--dim);font-size:13px;text-align:center;padding:20px;}
+.hero-frame .ph b{color:var(--grn);font-size:14px;}
+.hero-visual::before,.hero-visual::after{content:'';position:absolute;width:26px;height:26px;border:2px solid var(--gold-hi);z-index:3;}
+.hero-visual::before{top:-6px;left:-6px;border-right:0;border-bottom:0;border-radius:6px 0 0 0;}
+.hero-visual::after{bottom:-6px;right:-6px;border-left:0;border-top:0;border-radius:0 0 6px 0;}
+.hero-cta{margin-top:8px;}
+
+/* CTA button */
+.btn-wa{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  background:var(--grad);color:var(--on-grad);text-decoration:none;font-size:16.5px;font-weight:800;letter-spacing:.02em;
+  padding:17px 34px;border-radius:14px;cursor:pointer;border:0;
+  box-shadow:0 12px 34px rgba(201,162,75,.26),inset 0 1px 0 rgba(255,255,255,.5);
+  transition:transform .25s var(--ease),box-shadow .25s;}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(201,162,75,.38),inset 0 1px 0 rgba(255,255,255,.5);}
+.btn-wa:active{transform:scale(.97);}
+.btn-wa svg{width:20px;height:20px;flex:none;}
+.btn-wa::after{content:'';position:absolute;top:0;left:-80%;width:45%;height:100%;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 3.6s var(--ease) infinite;}
+@keyframes shine{0%,55%{left:-80%}85%,100%{left:140%}}
+.btn-note{margin-top:14px;font-size:12.5px;color:var(--dim);letter-spacing:.03em;}
+
+/* ============ HERO STAT BAR — 数据条移到 hero 下方 ============ */
+.statbar{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(201,162,75,.05),rgba(201,162,75,.015));position:relative;z-index:2;}
+.statbar-in{max-width:1080px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:repeat(2,1fr);}
+.sb{padding:24px 8px;text-align:center;position:relative;}
+.sb:nth-child(odd){border-right:1px solid var(--line);}
+.sb:nth-child(-n+2){border-bottom:1px solid var(--line);}
+.sb .num{font-size:clamp(30px,8vw,42px);line-height:1.05;display:block;}
+.sb .num em{font-style:normal;font-size:.5em;}
+.sb .lbl{font-size:12px;color:var(--dim);margin-top:6px;display:block;letter-spacing:.04em;}
+
+/* section headers */
+.sec-tag{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.3em;color:var(--grn);margin-bottom:14px;}
+.sec-tag::before{content:'';width:26px;height:1px;background:var(--grad);}
+h2{font-size:clamp(28px,7vw,40px);line-height:1.2;margin-bottom:10px;}
+.sec-sub{color:var(--dim);font-size:14.5px;margin-bottom:38px;}
+
+/* ============ 痛点 — 2×2 大号数字网格 ============ */
+.pain{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+.pain-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+.pain-item{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 22px 22px;transition:border-color .3s;}
+.pain-item:hover{border-color:var(--line-hi);}
+.pain-item .n{font-family:'Playfair Display','Noto Serif SC','Songti SC','PingFang SC',serif;font-weight:800;font-size:52px;line-height:1;
+  background:linear-gradient(160deg,rgba(201,162,75,.20),rgba(201,162,75,.05));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.pain-item .q{font-family:'Playfair Display','Noto Serif SC','Songti SC','PingFang SC',serif;font-weight:800;font-size:16.5px;color:var(--txt);display:block;margin:8px 0 4px;}
+.pain-item p{font-size:14.5px;color:var(--dim);}
+.pain-item p b{color:var(--txt);font-weight:700;}
+
+/* ============ LIVE / 教学专区 ============ */
+.live-panel{position:relative;overflow:hidden;border-radius:24px;
+  background:linear-gradient(150deg,rgba(201,162,75,.09),rgba(201,162,75,.02) 55%);padding:32px 24px 28px;}
+.live-panel::before{content:'';position:absolute;inset:0;border-radius:24px;padding:1px;
+  background:linear-gradient(150deg,rgba(231,200,119,.5),rgba(201,162,75,.14) 45%,rgba(124,96,42,.3));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+.live-panel .wm{position:absolute;right:-6px;top:-28px;font-family:'Playfair Display','Noto Serif SC','Songti SC','PingFang SC',serif;font-weight:800;font-size:130px;line-height:1;
+  background:linear-gradient(160deg,rgba(201,162,75,.13),rgba(201,162,75,.02));-webkit-background-clip:text;background-clip:text;color:transparent;pointer-events:none;}
+.live-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,77,77,.12);border:1px solid rgba(255,77,77,.4);
+  color:#FF8A8A;font-weight:800;font-size:12.5px;letter-spacing:.18em;padding:6px 14px;border-radius:100px;margin-bottom:14px;}
+.live-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--live);box-shadow:0 0 10px rgba(255,77,77,.9);animation:pulse 1.6s ease-in-out infinite;}
+.live-panel h3{font-size:clamp(23px,6vw,32px);line-height:1.25;margin-bottom:6px;position:relative;}
+.live-panel .live-sub{color:var(--dim);font-size:14px;margin-bottom:22px;position:relative;}
+.sessions{display:grid;gap:12px;position:relative;}
+.session{display:flex;align-items:center;gap:16px;background:rgba(10,11,12,.5);border:1px solid var(--line);border-radius:16px;padding:16px 18px;}
+.session .t{font-family:'Playfair Display','Noto Serif SC','Songti SC','PingFang SC',serif;font-weight:800;font-size:19px;flex:none;width:64px;}
+.session .d{font-size:13.5px;color:var(--dim);}
+.session .d b{display:block;font-size:14.5px;color:var(--txt);font-weight:700;margin-bottom:1px;}
+.session .lv{margin-left:auto;flex:none;font-size:10.5px;font-weight:800;letter-spacing:.14em;color:#FF8A8A;border:1px solid rgba(255,77,77,.4);border-radius:6px;padding:3px 8px;display:inline-flex;align-items:center;gap:5px;}
+.session .lv::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--live);animation:pulse 1.6s ease-in-out infinite;}
+.session .lv.pre{color:var(--grn);border-color:var(--line-hi);}
+.session .lv.pre::before{background:var(--grn);animation:none;}
+.live-foot{margin-top:18px;font-size:13px;color:var(--dim);position:relative;text-align:center;}
+.live-foot b{color:var(--txt);}
+
+/* ============ OFFER — 编号横行列表(和原卡片网格不同) ============ */
+.rows{display:grid;gap:12px;}
+.row{position:relative;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px;transition:border-color .3s,transform .3s var(--ease);}
+.row:hover{border-color:var(--line-hi);transform:translateX(4px);}
+.row .idx{font-family:'Playfair Display','Noto Serif SC','Songti SC','PingFang SC',serif;font-weight:800;font-size:26px;line-height:1;color:var(--on-grad);
+  background:var(--grad);width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none;}
+.row h3{font-size:17px;margin-bottom:4px;color:var(--txt);display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+.row h3 svg{width:18px;height:18px;color:var(--grn);flex:none;}
+.row p{font-size:14px;color:var(--dim);max-width:44em;}
+.row .tag{display:inline-block;margin-top:10px;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--gold-hi);
+  border:1px solid var(--line);border-radius:100px;padding:4px 12px;background:rgba(201,162,75,.05);}
+
+/* ============ 学员反馈 ============ */
+.fb-rail{display:grid;grid-template-columns:1fr;gap:14px;}
+.fb-card{position:relative;border-radius:20px;overflow:hidden;background:var(--card);padding:12px 12px 14px;}
+.fb-card::before{content:'';position:absolute;inset:0;border-radius:20px;padding:1px;
+  background:linear-gradient(150deg,rgba(231,200,119,.32),rgba(201,162,75,.10) 45%,rgba(124,96,42,.2));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+.fb-card .imgwrap{position:relative;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.02);}
+.fb-card img{width:100%;height:auto;display:block;position:relative;}
+.fb-card .ph{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;color:var(--dim);font-size:13px;text-align:center;padding:20px;}
+.fb-card .cap{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--dim);margin:11px 4px 0;position:relative;}
+.fb-card .cap b{color:var(--txt);font-weight:700;}
+.fb-card .cap::before{content:'';flex:none;width:6px;height:6px;border-radius:50%;background:var(--grad);box-shadow:0 0 8px rgba(201,162,75,.7);}
+
+/* ============ 适合谁 ============ */
+.fit-grid{display:grid;gap:14px;}
+.fit-card{border-radius:20px;padding:26px 24px;position:relative;overflow:hidden;border:1px solid var(--line);}
+.fit-yes{background:linear-gradient(165deg,rgba(201,162,75,.11),rgba(201,162,75,.02));border-color:var(--line-hi);}
+.fit-no{background:var(--card);}
+.fit-card h3{font-size:16.5px;margin-bottom:16px;display:flex;align-items:center;gap:9px;}
+.fit-yes h3{color:var(--txt);}
+.fit-no h3{color:var(--dim);}
+.fit-card ul{list-style:none;display:grid;gap:11px;}
+.fit-card li{font-size:14px;padding-left:27px;position:relative;color:var(--txt);}
+.fit-no li{color:var(--dim);}
+.fit-yes li::before{content:'✓';position:absolute;left:0;color:var(--grn);font-weight:900;}
+.fit-no li::before{content:'✕';position:absolute;left:0;color:#6E5A5F;font-weight:900;}
+
+/* ============ FINAL ============ */
+.final{text-align:center;overflow:hidden;padding:92px 0 84px;}
+.final .halo{position:absolute;left:50%;bottom:-160px;transform:translateX(-50%);width:560px;height:380px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(201,162,75,.16),transparent 65%);filter:blur(30px);pointer-events:none;}
+.final .motto{font-size:clamp(24px,7vw,36px);line-height:1.35;}
+.final .motto small{display:block;font-size:.5em;color:var(--dim);font-weight:400;margin-top:14px;letter-spacing:.1em;font-family:-apple-system,'PingFang SC',sans-serif;}
+.final .btn-wa{margin-top:30px;}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:32px 0 100px;text-align:center;}
+.foot-ig{display:inline-flex;align-items:center;gap:9px;color:var(--txt);text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.03em;
+  border:1px solid var(--line-hi);border-radius:100px;padding:10px 20px;transition:border-color .2s,transform .2s var(--ease);}
+.foot-ig:hover{border-color:var(--grn);transform:translateY(-1px);}
+.foot-ig svg{width:16px;height:16px;color:var(--grn);}
+footer .cr{font-size:12px;color:var(--dim);margin-top:14px;}
+footer .dis{font-size:11px;color:#6E5A5F;margin-top:14px;line-height:1.7;max-width:36em;margin-left:auto;margin-right:auto;}
+
+/* floating WA */
+.float-wa{position:fixed;right:16px;bottom:16px;z-index:90;width:56px;height:56px;border-radius:50%;
+  background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .2s var(--ease);}
+.float-wa:active{transform:scale(.92);}
+.float-wa::before{content:'';position:absolute;inset:0;border-radius:50%;border:2px solid rgba(37,211,102,.5);animation:ring 2.2s var(--ease) infinite;}
+@keyframes ring{0%{transform:scale(1);opacity:.9}100%{transform:scale(1.55);opacity:0}}
+.float-wa svg{width:30px;height:30px;}
+
+/* modal */
+.modal-bg{position:fixed;inset:0;z-index:300;background:rgba(4,6,5,.72);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:none;align-items:flex-end;justify-content:center;}
+.modal-bg.open{display:flex;}
+.modal{width:100%;max-width:440px;background:#101410;border:1px solid var(--line-hi);border-radius:24px 24px 0 0;
+  padding:26px 24px calc(26px + env(safe-area-inset-bottom));position:relative;animation:sheetup .4s var(--ease);}
+@keyframes sheetup{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal .close{position:absolute;right:14px;top:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--dim);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.modal h3{font-size:20px;margin-bottom:4px;padding-right:36px;}
+.modal .msub{font-size:12.5px;color:var(--dim);margin-bottom:18px;}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:13px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.field label i{font-style:normal;color:var(--live);margin-left:2px;}
+.field input,.field select{width:100%;height:48px;border-radius:12px;border:1px solid var(--line-hi);background:rgba(255,255,255,.04);color:var(--txt);font-size:15px;padding:0 14px;font-family:inherit;appearance:none;-webkit-appearance:none;}
+.field select{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A24B' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;}
+.field input:focus,.field select:focus{outline:2px solid var(--grn);outline-offset:0;border-color:transparent;}
+.field select:invalid{color:var(--dim);}
+.modal .btn-wa{width:100%;margin-top:6px;font-size:16px;}
+.modal .mnote{margin-top:10px;font-size:11.5px;color:var(--dim);text-align:center;}
+
+/* ============ desktop ============ */
+@media(min-width:760px){
+  .hero{padding-top:150px;}
+  .hero-grid{grid-template-columns:1.15fr .85fr;align-items:center;gap:40px;}
+  .hero-visual{width:100%;margin:0;}
+  .hero-cta{margin-top:14px;}
+  .statbar-in{grid-template-columns:repeat(4,1fr);}
+  .sb:nth-child(odd){border-right:1px solid var(--line);}
+  .sb{border-right:1px solid var(--line);border-bottom:0!important;}
+  .sb:last-child{border-right:0;}
+  .pain-grid{grid-template-columns:1fr 1fr;}
+  .sessions{grid-template-columns:1fr 1fr 1fr;}
+  .session{flex-direction:column;align-items:flex-start;gap:8px;}
+  .session .lv{margin-left:0;}
+  .live-panel{padding:38px 34px 32px;}
+  .rows{grid-template-columns:1fr 1fr;}
+  .fb-rail{grid-template-columns:1fr 1fr;align-items:start;}
+  .fit-grid{grid-template-columns:1fr 1fr;}
+  .modal-bg{align-items:center;padding:20px;}
+  .modal{border-radius:24px;animation:pop .35s var(--ease);}
+  @keyframes pop{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;}html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a class="logo disp" href="#"><b>WING KWAN</b> <span>陪跑计划</span></a>
+    <a class="nav-ig" href="https://www.instagram.com/wingkw4n_" target="_blank" rel="noopener" aria-label="Instagram @wingkw4n_">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+    <a class="nav-wa js-wa" href="#" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+      咨询
+    </a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="badge" data-hero>马来西亚合格认证交易员</span>
+      <h1 class="disp" data-hero><span class="g">陪跑计划</span></h1>
+      <div class="h1sub disp" data-hero>1对1带你<span class="g">建立自己的</span><br>交易系统</div>
+      <p class="lead" data-hero>不卖信号,不叫你跟单。每天 LIVE 实盘手把手教,从第一单开始陪着你,直到你能独立交易。</p>
+      <div class="chips">
+        <span class="chip" data-hero><span class="dot"></span>每天 <b>LIVE</b> 带盘</span>
+        <span class="chip" data-hero><b>1对1</b> 陪跑</span>
+        <span class="chip" data-hero>超低止损 <b>40点</b></span>
+        <span class="chip" data-hero>专属学习 <b>App</b></span>
+      </div>
+      <div class="hero-cta" data-hero-cta>
+        <a class="btn-wa js-wa" href="#" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+          WhatsApp 了解陪跑计划
+        </a>
+        <p class="btn-note">先填 30 秒小资料,Wing Kwan 了解你的情况后当天回复</p>
+      </div>
+    </div>
+    <div class="hero-visual" data-hero-photo>
+      <div class="hero-frame">
+        <img src="assets/hero.webp" alt="Wing Kwan — 马来西亚合格认证交易员" width="900" height="1200" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= STAT BAR ================= -->
+<section class="statbar" style="padding:0">
+  <div class="statbar-in" data-stats>
+    <div class="sb"><span class="num disp g"><span data-count="5">0</span><em>年</em></span><span class="lbl">实战交易经验</span></div>
+    <div class="sb"><span class="num disp g"><span data-count="1000">0</span><em>+</em></span><span class="lbl">社区学员</span></div>
+    <div class="sb"><span class="num disp g"><span data-count="3">0</span><em>个月</em></span><span class="lbl">培养成合格交易员</span></div>
+    <div class="sb"><span class="num disp g">XAUUSD</span><span class="lbl">主攻外汇 &amp; 黄金</span></div>
+  </div>
+</section>
+
+<!-- ================= 痛点 ================= -->
+<section class="pain">
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>REALITY CHECK</p>
+    <h2 class="disp" data-reveal>你是不是也<span class="g">这样?</span></h2>
+    <p class="sec-sub" data-reveal>90% 想学交易的人,都卡在同样的地方。</p>
+    <div class="pain-grid">
+      <div class="pain-item" data-reveal><span class="n">01</span><span class="q disp">跟过信号群</span><p>别人赚,你亏 —— 群解散了,<b>你还是不会交易</b></p></div>
+      <div class="pain-item" data-reveal><span class="n">02</span><span class="q disp">看了几十小时 YouTube</span><p>真金白银的时候,<b>还是不敢下单、乱下单</b></p></div>
+      <div class="pain-item" data-reveal><span class="n">03</span><span class="q disp">要上班、要上课</span><p>没时间盯盘,<b>永远错过进场点</b></p></div>
+      <div class="pain-item" data-reveal><span class="n">04</span><span class="q disp">赚亏全凭运气</span><p>亏了不知道为什么亏,赚了也不知道为什么赚 —— <b>没有自己的系统</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 实盘带练 ================= -->
+<section class="live-sec">
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>DAILY LIVE</p>
+    <h2 class="disp" data-reveal>每天 <span class="g">LIVE 实盘</span>带你交易</h2>
+    <p class="sec-sub" data-reveal>不是录播课 —— 是每天在真实行情里,带你看盘、进场、守纪律。</p>
+    <div class="live-panel" data-reveal>
+      <span class="wm">LIVE</span>
+      <span class="live-badge">LIVE EVERYDAY</span>
+      <h3 class="disp">早/午/晚盘 <span class="g">全时段覆盖</span></h3>
+      <p class="live-sub">上班上课都跟得上 —— 错过 LIVE,App 里随时补课。</p>
+      <div class="sessions">
+        <div class="session"><span class="t disp g">早盘</span><span class="d"><b>盘前提醒</b>开盘前给你当天关注位</span><span class="lv pre">提醒</span></div>
+        <div class="session"><span class="t disp g">午盘</span><span class="d"><b>LIVE 实盘</b>直播看盘,讲进场逻辑</span><span class="lv">LIVE</span></div>
+        <div class="session"><span class="t disp g">晚盘</span><span class="d"><b>LIVE 实盘</b>黄金主战场,手把手带</span><span class="lv">LIVE</span></div>
+      </div>
+      <p class="live-foot">以实战为主,不讲空理论 —— <b>看着我怎么做,再自己做</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFFER ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>THE SYSTEM</p>
+    <h2 class="disp" data-reveal>加入之后<br>你会得到<span class="g">什么</span></h2>
+    <p class="sec-sub" data-reveal>一套完整的路径,不是零散的课。</p>
+    <div class="rows">
+      <div class="row" data-reveal>
+        <span class="idx">1</span>
+        <div><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>1对1 陪跑</h3>
+        <p>从开户、第一单到独立交易,一对一带着走,问题当天有人答。</p><span class="tag">陪跑到你独立交易为止</span></div>
+      </div>
+      <div class="row" data-reveal>
+        <span class="idx">2</span>
+        <div><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>每天 LIVE 带盘</h3>
+        <p>早盘提醒 + 午盘、晚盘 LIVE 实盘,全时段覆盖,以实战为主。</p><span class="tag">LIVE EVERYDAY</span></div>
+      </div>
+      <div class="row" data-reveal>
+        <span class="idx">3</span>
+        <div><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>超低止损 · 40点</h3>
+        <p>每单止损最多 40 点,风险先锁死;盈亏比可达 1:3,亏小赚大,不靠扛单。</p><span class="tag">全马超低止损策略</span></div>
+      </div>
+      <div class="row" data-reveal>
+        <span class="idx">4</span>
+        <div><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>精准入场点</h3>
+        <p>一套胜率高达 8 成的进场逻辑,教你等对位置再出手,不凭感觉下单。</p><span class="tag">主攻外汇 &amp; 黄金</span></div>
+      </div>
+      <div class="row" data-reveal>
+        <span class="idx">5</span>
+        <div><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>专属学习 App</h3>
+        <p>A–Z 完整技术课程,错过直播随时补课,上班上课也跟得上进度。</p><span class="tag">随时随地学</span></div>
+      </div>
+      <div class="row" data-reveal>
+        <span class="idx">6</span>
+        <div><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>专属 VIP 群带你交易</h3>
+        <p>进 VIP 群跟着节奏走,另送交易赠金 Credit Bonus,可返佣。</p><span class="tag">Credit Bonus · 可返佣</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 学员反馈 ================= -->
+<section class="fb">
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>STUDENT FEEDBACK</p>
+    <h2 class="disp" data-reveal>学员怎么<span class="g">说</span></h2>
+    <p class="sec-sub" data-reveal>真实 WhatsApp 聊天记录,截图为证。</p>
+    <div class="fb-rail" data-reveal>
+      <div class="fb-card"><div class="imgwrap"><img src="assets/fb1.webp" alt="学员反馈:跟着 SOP 进场,第一单就赚到" width="640" height="676" loading="lazy"></div><p class="cap"><b>“yes bro 赚到了”</b>· 跟着 SOP 的第一单</p></div>
+      <div class="fb-card"><div class="imgwrap"><img src="assets/fb2.webp" alt="学员反馈:1v1 协助很多,每天都有 hit target" width="640" height="260" loading="lazy"></div><p class="cap"><b>“每天都有 hit target”</b>· 1对1 学员</p></div>
+      <div class="fb-card"><div class="imgwrap"><img src="assets/fb3.webp" alt="学员反馈:1对1真的是有用,分析连续 hit TP" width="640" height="319" loading="lazy"></div><p class="cap"><b>“1对1真的是有用”</b>· 连续 hit TP</p></div>
+      <div class="fb-card"><div class="imgwrap"><img src="assets/fb4.webp" alt="学员反馈:学生党感谢带我入行" width="640" height="983" loading="lazy"></div><p class="cap"><b>“感谢带我入行”</b>· 学生党学员</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 适合谁 ================= -->
+<section>
+  <div class="wrap">
+    <p class="sec-tag" data-reveal>WHO IS IT FOR</p>
+    <h2 class="disp" data-reveal>这个计划<span class="g">适合谁</span></h2>
+    <p class="sec-sub" data-reveal>说清楚 —— 我们不是收所有人。</p>
+    <div class="fit-grid">
+      <div class="fit-card fit-yes" data-reveal>
+        <h3>✓ 适合你,如果你是</h3>
+        <ul>
+          <li>认真想学技术的大学生</li>
+          <li>想靠自己判断进出场的上班族</li>
+          <li>被信号群伤过、想真正学会的人</li>
+          <li>愿意跟纪律、守止损的人</li>
+        </ul>
+      </div>
+      <div class="fit-card fit-no" data-reveal>
+        <h3>✕ 不适合,如果你</h3>
+        <ul>
+          <li>想一夜暴富、抱着赌一把的心态</li>
+          <li>只想抄单,不想学会自己交易</li>
+          <li>不愿意设止损、喜欢扛单</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final">
+  <div class="halo"></div>
+  <div class="wrap">
+    <p class="motto disp" data-reveal>只收<span class="g">认真想改变</span>的人<small>带你到能独立交易为止</small></p>
+    <a class="btn-wa js-wa" data-reveal href="#" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+      WhatsApp 咨询
+    </a>
+    <p class="btn-note" data-reveal>先填 30 秒小资料 · 不强推销,聊完再决定</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="foot-ig" href="https://www.instagram.com/wingkw4n_" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      IG @wingkw4n_
+    </a>
+    <p class="cr">© 2026 Wing Kwan · 马来西亚合格认证交易员</p>
+    <p class="dis">DISCLAIMER: 本页面内容仅供教育与资讯用途,不构成任何投资建议。外汇与差价合约交易涉及风险,过往表现不代表未来结果,请自行评估风险承受能力。</p>
+  </div>
+</footer>
+
+<a class="float-wa js-wa" href="#" rel="noopener" aria-label="WhatsApp 咨询">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+</a>
+
+<!-- ================= 资料表 MODAL ================= -->
+<div class="modal-bg" id="waModal" role="dialog" aria-modal="true" aria-label="联系前小资料">
+  <form class="modal" id="waForm">
+    <button type="button" class="close" id="waClose" aria-label="关闭">✕</button>
+    <h3 class="disp">开聊前,先让 Wing Kwan <span class="g">认识你</span></h3>
+    <p class="msub">30 秒填完 · 提交后直接跳转 WhatsApp</p>
+    <div class="field"><label for="f-name">怎么称呼你?<i>*</i></label>
+      <input id="f-name" name="称呼" type="text" required maxlength="30" placeholder="例:Wei Ling" autocomplete="name"></div>
+    <div class="field"><label for="f-role">你目前的身份?<i>*</i></label>
+      <select id="f-role" name="身份" required><option value="" disabled selected>请选择</option><option>大学生</option><option>上班族</option><option>自雇 / 做生意</option><option>全职妈妈</option></select></div>
+    <div class="field"><label for="f-exp">交易经验?<i>*</i></label>
+      <select id="f-exp" name="交易经验" required><option value="" disabled selected>请选择</option><option>完全没接触过</option><option>试过,但亏钱 / 没方向</option><option>有经验,想系统化</option></select></div>
+    <div class="field"><label for="f-fund">预计启动资金 (USD)?<i>*</i></label>
+      <input id="f-fund" name="资金" type="text" inputmode="numeric" required maxlength="12" placeholder="例:1000"></div>
+    <button type="submit" class="btn-wa">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.1-.7l.4-.5c.1-.2.1-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.5 3.9.6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.2-.6-.4Z"/></svg>
+      提交并打开 WhatsApp
+    </button>
+    <p class="mnote">资料只用于了解你的情况,不会外传</p>
+  </form>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var WA='60162387696';
+
+  var nav=document.getElementById('nav');
+  var onScrollNav=function(){nav.classList.toggle('scrolled',scrollY>30);};
+  addEventListener('scroll',onScrollNav,{passive:true});onScrollNav();
+
+  var progress=document.getElementById('progress');var ticking=false;
+  addEventListener('scroll',function(){
+    if(ticking)return;ticking=true;
+    requestAnimationFrame(function(){
+      var h=document.documentElement;var p=h.scrollTop/(h.scrollHeight-h.clientHeight);
+      progress.style.transform='scaleX('+p+')';ticking=false;
+    });
+  },{passive:true});
+
+  /* 资料表 modal */
+  var modal=document.getElementById('waModal');var form=document.getElementById('waForm');
+  document.querySelectorAll('.js-wa').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();modal.classList.add('open');document.body.style.overflow='hidden';});
+  });
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow='';}
+  document.getElementById('waClose').addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+  addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('f-name').value.trim();
+    var role=document.getElementById('f-role').value;
+    var exp=document.getElementById('f-exp').value;
+    var fund=document.getElementById('f-fund').value.trim();
+    var msg='你好 Wing Kwan,我想了解陪跑计划\n称呼:'+name+'\n身份:'+role+'\n交易经验:'+exp+'\n启动资金:USD '+fund;
+    window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
+    closeModal();
+  });
+
+  /* 动画 */
+  var reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduced||typeof gsap==='undefined'){document.querySelectorAll('[data-count]').forEach(function(el){el.textContent=el.dataset.count;});return;}
+  gsap.registerPlugin(ScrollTrigger);
+  var tl=gsap.timeline({defaults:{ease:'expo.out'}});
+  tl.from('[data-hero]',{opacity:0,y:26,duration:.9,stagger:.09})
+    .from('[data-hero-photo]',{opacity:0,x:36,scale:.95,duration:1.1},'-=.7')
+    .from('[data-hero-cta]',{opacity:0,y:18,duration:.8},'-=.6');
+  gsap.to('[data-hero-photo]',{yPercent:-6,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:.6}});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    gsap.from(el,{opacity:0,y:26,duration:.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'}});
+  });
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var target=parseInt(el.dataset.count,10);var obj={v:0};
+    gsap.to(obj,{v:target,duration:1.6,ease:'power2.out',snap:{v:1},onUpdate:function(){el.textContent=obj.v;},scrollTrigger:{trigger:el,start:'top 90%',once:true}});
+  });
+})();
+</script>
+</body>
+</html>
