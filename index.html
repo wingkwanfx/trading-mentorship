@@ -92,20 +92,18 @@ p.lead{color:var(--dim);font-size:15.5px;max-width:30em;}
 .chip .dot{width:7px;height:7px;border-radius:50%;background:var(--live);box-shadow:0 0 8px rgba(255,77,77,.8);animation:pulse 1.6s ease-in-out infinite;}
 /* 照片带角框 */
 .hero-visual{position:relative;width:min(360px,80%);margin:6px auto 0;}
-.hero-frame{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line-hi);
-  aspect-ratio:3/4;box-shadow:0 30px 70px -20px rgba(0,0,0,.6);
-  /* 酒红 studio 背光:柔和光晕在人物身后,边角压暗 */
-  background:radial-gradient(115% 90% at 50% 24%,#5A2E3A 0%,#331A21 42%,#1B1014 78%,#160C0F 100%);}
-/* 抠图人物:原色不动,坐在酒红背景上 */
-.hero-frame img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;}
-/* 底部渐隐,人物下半身自然化进页面 */
+.hero-frame{position:relative;aspect-ratio:3/4;}
+/* 金色背光:人物身后一圈暖光,把黑西装从暗背景里托出来 */
+.hero-frame::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(56% 50% at 50% 33%,rgba(201,162,75,.32),rgba(183,110,121,.16) 46%,transparent 72%);}
+/* 抠图人物:提亮 + 金色描边光,突出人 */
+.hero-frame img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;
+  filter:brightness(1.09) contrast(1.05) drop-shadow(0 12px 34px rgba(0,0,0,.5)) drop-shadow(0 0 28px rgba(201,162,75,.30));}
+/* 底部渐隐,下半身自然化进页面 */
 .hero-frame::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:linear-gradient(to bottom,transparent 60%,rgba(22,12,15,.92) 100%);}
+  background:linear-gradient(to bottom,transparent 66%,rgba(22,12,15,.82) 100%);}
 .hero-frame .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--dim);font-size:13px;text-align:center;padding:20px;}
 .hero-frame .ph b{color:var(--grn);font-size:14px;}
-.hero-visual::before,.hero-visual::after{content:'';position:absolute;width:26px;height:26px;border:2px solid var(--gold-hi);z-index:3;}
-.hero-visual::before{top:-6px;left:-6px;border-right:0;border-bottom:0;border-radius:6px 0 0 0;}
-.hero-visual::after{bottom:-6px;right:-6px;border-left:0;border-top:0;border-radius:0 0 6px 0;}
 .hero-cta{margin-top:8px;}
 
 /* CTA button */
@@ -498,6 +496,8 @@ footer .dis{font-size:11px;color:#6E5A5F;margin-top:14px;line-height:1.7;max-wid
     <p class="msub">30 秒填完 · 提交后直接跳转 WhatsApp</p>
     <div class="field"><label for="f-name">怎么称呼你?<i>*</i></label>
       <input id="f-name" name="称呼" type="text" required maxlength="30" placeholder="例:Wei Ling" autocomplete="name"></div>
+    <div class="field"><label for="f-age">年龄?<i>*</i></label>
+      <input id="f-age" name="年龄" type="text" inputmode="numeric" required maxlength="3" placeholder="例:25"></div>
     <div class="field"><label for="f-role">你目前的身份?<i>*</i></label>
       <select id="f-role" name="身份" required><option value="" disabled selected>请选择</option><option>大学生</option><option>上班族</option><option>自雇 / 做生意</option><option>全职妈妈</option></select></div>
     <div class="field"><label for="f-exp">交易经验?<i>*</i></label>
@@ -543,10 +543,11 @@ footer .dis{font-size:11px;color:#6E5A5F;margin-top:14px;line-height:1.7;max-wid
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var name=document.getElementById('f-name').value.trim();
+    var age=document.getElementById('f-age').value.trim();
     var role=document.getElementById('f-role').value;
     var exp=document.getElementById('f-exp').value;
     var fund=document.getElementById('f-fund').value.trim();
-    var msg='你好 Wing Kwan,我想了解陪跑计划\n称呼:'+name+'\n身份:'+role+'\n交易经验:'+exp+'\n启动资金:USD '+fund;
+    var msg='你好 Wing Kwan,我想了解陪跑计划\n称呼:'+name+'\n年龄:'+age+'\n身份:'+role+'\n交易经验:'+exp+'\n启动资金:USD '+fund;
     window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
     closeModal();
   });
