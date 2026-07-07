@@ -93,17 +93,14 @@ p.lead{color:var(--dim);font-size:15.5px;max-width:30em;}
 /* 照片带角框 */
 .hero-visual{position:relative;width:min(360px,80%);margin:6px auto 0;}
 .hero-frame{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line-hi);
-  background:linear-gradient(160deg,rgba(201,162,75,.10),rgba(201,162,75,.04));aspect-ratio:3/4;
-  box-shadow:0 30px 70px -20px rgba(0,0,0,.6);}
-.hero-frame img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92) contrast(1.03);}
-/* 勃艮第融色:白背景 → 酒红调,黑西装保持不变 */
-.hero-frame::before{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;opacity:.9;
-  background:linear-gradient(155deg,#8A5561 0%,#43242C 55%,#1E1216 100%);mix-blend-mode:multiply;}
-/* 边角暗角 + 底部渐隐,让照片化进页面 */
-.hero-frame::after{content:'';position:absolute;inset:0;z-index:3;pointer-events:none;
-  background:
-    radial-gradient(130% 105% at 50% 26%,transparent 42%,rgba(23,14,17,.55) 100%),
-    linear-gradient(to bottom,transparent 58%,rgba(23,14,17,.9) 100%);}
+  aspect-ratio:3/4;box-shadow:0 30px 70px -20px rgba(0,0,0,.6);
+  /* 酒红 studio 背光:柔和光晕在人物身后,边角压暗 */
+  background:radial-gradient(115% 90% at 50% 24%,#5A2E3A 0%,#331A21 42%,#1B1014 78%,#160C0F 100%);}
+/* 抠图人物:原色不动,坐在酒红背景上 */
+.hero-frame img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block;}
+/* 底部渐隐,人物下半身自然化进页面 */
+.hero-frame::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(to bottom,transparent 60%,rgba(22,12,15,.92) 100%);}
 .hero-frame .ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--dim);font-size:13px;text-align:center;padding:20px;}
 .hero-frame .ph b{color:var(--grn);font-size:14px;}
 .hero-visual::before,.hero-visual::after{content:'';position:absolute;width:26px;height:26px;border:2px solid var(--gold-hi);z-index:3;}
