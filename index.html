@@ -210,7 +210,14 @@ h2{font-size:clamp(28px,7vw,40px);line-height:1.2;margin-bottom:10px;}
 .fit-card ul{list-style:none;display:grid;gap:11px;}
 .fit-card li{font-size:14px;padding-left:27px;position:relative;color:var(--txt);}
 .fit-no li{color:var(--dim);}
-.fit-yes li::before{content:'✓';position:absolute;left:0;color:var(--grn);font-weight:900;}
+.fit-yes li::before{
+  content:'✓';position:absolute;left:0;top:1px;
+  color:#0B1220;font-weight:900;font-size:12px;line-height:1;
+  width:18px;height:18px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:#2DE6D6;box-shadow:0 0 10px rgba(45,230,214,.6);
+}
+.fit-yes li{padding-left:30px;}
 .fit-no li::before{content:'✕';position:absolute;left:0;color:#6E5A5F;font-weight:900;}
 
 /* ============ FINAL ============ */
@@ -547,7 +554,7 @@ footer .dis{font-size:11px;color:#6E5A5F;margin-top:14px;line-height:1.7;max-wid
     var role=document.getElementById('f-role').value;
     var exp=document.getElementById('f-exp').value;
     var fund=document.getElementById('f-fund').value.trim();
-    var msg='你好 Wing Kwan,我想了解陪跑计划\n称呼:'+name+'\n年龄:'+age+'\n身份:'+role+'\n交易经验:'+exp+'\n启动资金:USD '+fund;
+    var msg='你好 Wing Kwan,我要开始陪跑计划📊\n称呼:'+name+'\n年龄:'+age+'\n身份:'+role+'\n交易经验:'+exp+'\n启动资金:USD '+fund;
     window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank');
     closeModal();
   });
