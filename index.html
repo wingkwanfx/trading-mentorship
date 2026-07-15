@@ -596,7 +596,7 @@ footer .dis{font-size:11px;color:#6E5A5F;margin-top:14px;line-height:1.7;max-wid
     a.href='https://wa.me/'+WA+'?text='+WA_TEXT;
     a.addEventListener('click',function(e){
       e.preventDefault();
-      if(typeof fbq==='function')fbq('track','Contact');
+      if(typeof fbq==='function')fbq('track','Contact',{currency:'MYR',value:0});
       submitted=false;
       modal.classList.add('open');
       document.body.style.overflow='hidden';
