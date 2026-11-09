@@ -17,11 +17,11 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1025171346567734');
+fbq('init', '2720233161774992');
 fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1025171346567734&ev=PageView&noscript=1"
+src="https://www.facebook.com/tr?id=2720233161774992&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -526,7 +526,7 @@ footer .dis{font-size:11px;color:#6E5A5F;margin-top:14px;line-height:1.7;max-wid
     <div class="field"><label for="f-exp">交易经验?<i>*</i></label>
       <select id="f-exp" name="交易经验" required><option value="" disabled selected>请选择</option><option>完全没接触过</option><option>试过,但亏钱 / 没方向</option><option>有经验,想系统化</option></select></div>
     <div class="field"><label for="f-fund">预计启动资金 (USD)?<i>*</i></label>
-      <input id="f-fund" name="资金" type="text" inputmode="numeric" required maxlength="12" placeholder="例:1000"></div>
+      <select id="f-fund" name="资金" required><option value="" disabled selected>请选择</option><option>1,000</option><option>3,000</option><option>5,000</option><option>10,000</option></select></div>
     <div class="field"><label for="f-phone">你的 WhatsApp 号码?<i>*</i></label>
       <input id="f-phone" name="电话" type="tel" inputmode="tel" required maxlength="20" placeholder="例:0123456789" autocomplete="tel"></div>
     <button type="submit" class="btn-wa">
@@ -543,7 +543,7 @@ footer .dis{font-size:11px;color:#6E5A5F;margin-top:14px;line-height:1.7;max-wid
 (function(){
   var WA='601163847031';
   // 填好 Apps Script 部署后的 Web App URL(见部署说明),否则表单数据不会记录到 Sheet
-  var SHEET_ENDPOINT='https://script.google.com/macros/s/AKfycbypK8p3OjyAxutQG1vgOj4ymke-2H74vVKpdg8M5jaPRISnn0QN9pbv8F_-Mbv_TqPb/exec';
+  var SHEET_ENDPOINT='https://script.google.com/macros/s/AKfycbyqgDgSK-1QWK9hqqiI6y9br6GmKzV7fmbhBAGsPkTOBBQw_BkJLSkbBBASLQ0Sono3-A/exec';
 
   var nav=document.getElementById('nav');
   var onScrollNav=function(){nav.classList.toggle('scrolled',scrollY>30);};
